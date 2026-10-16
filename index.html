@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>WhiskerCatcha: Cat-cha</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/captcha.css">
+  <link rel="stylesheet" href="css/levels.css">
+  <link rel="stylesheet" href="css/drive.css">
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- Başlık ekranı -->
+    <section class="screen title-screen" id="screen-title">
+      <div class="title-card">
+        <div class="logo-cat">🐈</div>
+        <h1>WhiskerCatcha</h1>
+        <p class="subtitle">Cat-cha</p>
+        <p class="lead">24 bölümlük, giderek tuhaflaşan bir CAPTCHA. Kedi olmadığını kanıtla.</p>
+        <p class="lead small">Gerçek bir güvenlik sistemi değil, sadece bir oyun.</p>
+        <div class="title-actions">
+          <button class="btn primary big" id="btn-start">Başla</button>
+          <button class="btn big" id="btn-continue" hidden>Devam et</button>
+        </div>
+        <p class="best-line" id="best-line"></p>
+        <p class="title-links"><a href="levels.html">Bölüm listesi</a> · <a href="how-to-play.html">Nasıl oynanır?</a></p>
+      </div>
+    </section>
+
+    <!-- Oyun ekranı -->
+    <section class="screen game-screen" id="screen-game" hidden>
+      <header class="hud">
+        <div class="hud-main">
+          <div class="hud-row">
+            <strong id="hud-level">Bölüm 1 / 24</strong>
+            <span class="hud-name" id="hud-name"></span>
+          </div>
+          <div class="progress"><div class="progress-fill" id="hud-bar"></div></div>
+        </div>
+        <div class="hud-stats">
+          <span>✗ <b id="hud-miss">0</b></span>
+          <span>⏱ <b id="hud-time">0:00</b></span>
+        </div>
+        <button class="icon-btn" id="btn-mute" title="Ses">🔊</button>
+        <button class="icon-btn" id="btn-restart-level" title="Bölümü yeniden başlat">↻</button>
+        <button class="icon-btn" id="btn-menu" title="Ana menü">☰</button>
+      </header>
+      <main class="stage">
+        <div class="captcha-card" id="card">
+          <div class="prompt">
+            <div class="prompt-main" id="prompt-main"></div>
+            <div class="prompt-sub" id="prompt-sub"></div>
+          </div>
+          <div class="level-root" id="level-root"></div>
+          <div class="overlay" id="overlay">
+            <div class="overlay-box">
+              <div class="overlay-icon" id="overlay-icon">✓</div>
+              <div class="overlay-text" id="overlay-text"></div>
+            </div>
+          </div>
+          <div class="toast" id="toast"></div>
+        </div>
+      </main>
+    </section>
+
+    <!-- Final ekranı -->
+    <section class="screen final-screen" id="screen-final" hidden>
+      <div class="title-card">
+        <div class="final-pic" id="final-pic"></div>
+        <h1>Doğrulandı!</h1>
+        <p class="subtitle">Kedi olmadığın kesinleşti. (Neredeyse.)</p>
+        <div class="final-rank" id="final-rank"></div>
+        <div class="final-stats">
+          <div><span>Süre</span><b id="final-time">0:00</b></div>
+          <div><span>Hata</span><b id="final-mistakes">0</b></div>
+        </div>
+        <p class="best-line" id="final-best"></p>
+        <div class="title-actions">
+          <button class="btn primary big" id="btn-again">Tekrar oyna</button>
+          <button class="btn big" id="btn-final-menu">Ana menü</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/meta.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/sound.js"></script>
+  <script src="js/art.js"></script>
+  <script src="js/levels-1-4.js"></script>
+  <script src="js/levels-5-8.js"></script>
+  <script src="js/levels-9-12.js"></script>
+  <script src="js/levels-13-16.js"></script>
+  <script src="js/levels-17-20.js"></script>
+  <script src="js/levels-21.js"></script>
+  <script src="js/drive-engine.js"></script>
+  <script src="js/drive-levels.js"></script>
+  <script src="js/engine.js"></script>
+  <script>WC.engine.init();</script>
+</body>
+</html>

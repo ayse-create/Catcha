@@ -1,0 +1,47 @@
+/* Sayfa düzeni: ekranlar, başlık kartı, HUD */
+.app { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
+.screen { flex: 1; display: flex; flex-direction: column; }
+
+.title-screen, .final-screen { align-items: center; justify-content: center; padding: 24px 16px; }
+.title-card {
+  width: min(94vw, 520px);
+  background: var(--card);
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 0 8px 0 var(--ink), var(--shadow);
+  padding: 28px 24px 24px;
+  text-align: center;
+}
+.logo-cat { font-size: 64px; line-height: 1; margin-bottom: 4px; animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-6px) rotate(4deg); } }
+.title-card h1 { font-size: clamp(2rem, 7vw, 2.8rem); letter-spacing: -.02em; }
+.subtitle { margin: 0 0 14px; color: var(--accent); font-weight: 800; font-size: 1.2rem; }
+.lead { color: var(--muted); margin: 0 0 20px; }
+.lead.small { font-size: .92rem; }
+.title-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.best-line { min-height: 1.3em; color: var(--muted); font-size: .9rem; margin: 14px 0 0; }
+.title-links { margin-top: 10px; font-size: .92rem; color: var(--muted); display: flex; gap: 8px; justify-content: center; }
+
+.hud {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, .85);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--line);
+  position: sticky; top: 0; z-index: 10;
+}
+.hud-main { flex: 1; min-width: 0; }
+.hud-row { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.hud-name { color: var(--muted); font-size: .88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.progress { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; margin-top: 5px; }
+.progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--primary)); border-radius: 99px; transition: width .4s; }
+.hud-stats { display: flex; gap: 12px; font-size: .9rem; white-space: nowrap; }
+
+.stage { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 18px 12px 40px; }
+
+@media (max-width: 520px) {
+  .hud { padding: 8px 10px; gap: 6px; }
+  .hud-stats { flex-direction: column; gap: 0; font-size: .78rem; }
+  .hud-name { display: none; }
+  .icon-btn { width: 34px; height: 34px; }
+}

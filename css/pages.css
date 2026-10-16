@@ -1,0 +1,47 @@
+/* levels.html ve how-to-play.html */
+body.page { padding: 20px 14px 60px; }
+.page-wrap { width: min(100%, 920px); margin: 0 auto; }
+.page-head { margin-bottom: 20px; }
+.page-head .back { display: inline-block; margin-bottom: 10px; font-weight: 700; text-decoration: none; }
+.page-head h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); }
+.page-head p { color: var(--muted); margin: 0; }
+
+.panel, .group {
+  background: var(--card);
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 0 5px 0 var(--ink);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+.panel h2, .group h2 { font-size: 1.25rem; }
+.panel ul { margin: .4em 0 0; padding-left: 1.2em; }
+.panel li { margin: .35em 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.grid2 h3 { font-size: 1rem; }
+.grid2 p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+table.keys { border-collapse: collapse; margin: 8px 0 12px; }
+table.keys td { padding: 5px 14px 5px 0; vertical-align: top; }
+kbd {
+  display: inline-block; min-width: 1.7em; text-align: center;
+  padding: 1px 7px; border: 2px solid var(--ink); border-radius: 7px;
+  background: #fff7ee; box-shadow: 0 2px 0 var(--ink);
+  font: 700 .85rem var(--font);
+}
+
+.level-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; margin-top: 10px; }
+.level-tile {
+  display: flex; flex-direction: column; gap: 3px;
+  position: relative;
+  padding: 12px 12px 12px 14px;
+  border: 2px solid var(--line); border-radius: 14px;
+  text-decoration: none; color: var(--ink); background: #fffdf9;
+  transition: transform .1s, border-color .1s;
+}
+a.level-tile:hover { transform: translateY(-2px); border-color: var(--primary); }
+.level-tile .num { position: absolute; top: 8px; right: 12px; font-weight: 900; color: var(--accent); }
+.level-tile .ico { font-size: 1.6rem; }
+.level-tile small { color: var(--muted); }
+.level-tile.locked { opacity: .5; filter: grayscale(.6); }
+.page-foot { display: flex; gap: 10px; flex-wrap: wrap; }

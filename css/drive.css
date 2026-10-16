@@ -1,0 +1,27 @@
+/* Sürüş bölümleri (14, 15, 22, 23, 24) */
+.drive-canvas {
+  display: block; width: 100%; height: auto; aspect-ratio: 900 / 560;
+  border: 3px solid var(--ink); border-radius: 12px; background: #3b3f4a;
+  touch-action: none; user-select: none;
+}
+.drive-help { font-size: .88rem; color: var(--muted); margin-bottom: 10px; }
+.drive-help b { color: var(--ink); }
+.drive-status { display: flex; gap: 8px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+.chip { padding: 4px 12px; border-radius: 99px; background: var(--line); color: var(--muted); font-weight: 800; font-size: .85rem; transition: background .15s, color .15s; }
+.chip.ok { background: var(--good); color: #fff; }
+
+.drive-pad { display: none; justify-content: space-between; gap: 12px; margin-top: 12px; user-select: none; -webkit-user-select: none; touch-action: none; }
+.pad-group { display: flex; gap: 10px; }
+.pad-btn {
+  min-width: 72px; height: 64px; padding: 0 14px;
+  border: 3px solid var(--ink); border-radius: 16px; background: #fff;
+  font-size: 1.2rem; font-weight: 900; box-shadow: 0 4px 0 var(--ink); cursor: pointer;
+  touch-action: none; -webkit-touch-callout: none;
+}
+.pad-btn.wide { min-width: 96px; }
+.pad-btn.gas { background: #d6f5e0; }
+.pad-btn.on { transform: translateY(4px); box-shadow: 0 0 0 var(--ink); background: #ffe08a; }
+
+@media (pointer: coarse), (max-width: 760px) {
+  .drive-pad { display: flex; }
+}

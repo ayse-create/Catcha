@@ -1,0 +1,103 @@
+/* CAPTCHA kartı ve ortak bileşenler */
+.captcha-card {
+  position: relative;
+  width: min(100%, 460px);
+  background: var(--card);
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 0 6px 0 var(--ink), var(--shadow);
+  overflow: hidden;
+}
+.captcha-card.wide { width: min(100%, 960px); }
+
+.prompt {
+  background: var(--primary);
+  color: #fff;
+  padding: 14px 18px;
+}
+.prompt-main { font-size: 1.35rem; font-weight: 800; line-height: 1.2; }
+.prompt-main b, .prompt-main strong { font-weight: 900; }
+.prompt-main .hl { background: #ffd84d; color: #3a2c00; padding: 0 .3em; border-radius: 5px; }
+.prompt-main .without { background: #ff4d4f; color: #fff; padding: 0 .35em; border-radius: 5px; letter-spacing: .04em; text-decoration: underline; text-underline-offset: 3px; }
+.prompt-sub { font-size: .92rem; opacity: .92; margin-top: 4px; }
+.prompt-sub:empty { display: none; }
+
+.level-root { padding: 16px; position: relative; }
+.level-root.locked { pointer-events: none; }
+
+.actions { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.actions .note { color: var(--muted); font-size: .85rem; flex: 1; min-width: 120px; }
+
+/* Geçiş katmanı */
+.overlay {
+  position: absolute; inset: 0; z-index: 20;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(3px);
+}
+.overlay.show { display: flex; animation: fadein .18s ease-out; }
+.overlay-box { text-align: center; padding: 20px; }
+.overlay-icon {
+  width: 84px; height: 84px; border-radius: 50%;
+  display: grid; place-items: center; margin: 0 auto 10px;
+  font-size: 48px; font-weight: 900; color: #fff;
+}
+.overlay.good .overlay-icon { background: var(--good); animation: pop .35s cubic-bezier(.3, 1.6, .5, 1); }
+.overlay.bad .overlay-icon { background: var(--bad); animation: shake .4s; }
+.overlay-text { font-size: 1.15rem; font-weight: 800; }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { from { transform: scale(.3); } to { transform: scale(1); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-10px); } 40% { transform: translateX(10px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(6px); } }
+
+.toast {
+  position: absolute; left: 50%; bottom: 14px; z-index: 15;
+  transform: translate(-50%, 20px);
+  background: var(--ink); color: #fff;
+  padding: 8px 16px; border-radius: 99px;
+  font-size: .9rem; font-weight: 700;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  max-width: 92%; text-align: center;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast.bad { background: var(--bad); }
+.toast.good { background: var(--good); }
+
+.shake { animation: shake .35s; }
+
+/* Metin girişi */
+.text-input {
+  width: 100%;
+  font: inherit; font-size: 1.3rem; font-weight: 800;
+  letter-spacing: .25em; text-transform: uppercase; text-align: center;
+  padding: .55em .6em;
+  border: 3px solid var(--line); border-radius: 12px;
+  background: #fffdf9; color: var(--ink);
+}
+.text-input:focus { outline: none; border-color: var(--primary); }
+.text-input.plain { letter-spacing: .08em; }
+
+/* Görsel ızgarası (4, 11, 12, 18) */
+.img-grid { display: grid; gap: 5px; }
+.img-grid.g3 { grid-template-columns: repeat(3, 1fr); }
+.img-grid.g4 { grid-template-columns: repeat(4, 1fr); }
+.tile {
+  position: relative; aspect-ratio: 1; padding: 0;
+  border: 0; background: #eee; cursor: pointer; overflow: hidden;
+  border-radius: 4px; touch-action: manipulation;
+}
+.tile img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .15s; pointer-events: none; -webkit-user-drag: none; user-select: none; }
+.tile.sel img { transform: scale(.82); }
+.tile .check {
+  position: absolute; top: 6px; left: 6px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--primary); color: #fff; font-weight: 900;
+  display: none; place-items: center; font-size: 15px;
+  box-shadow: 0 0 0 2px #fff;
+}
+.tile.sel .check { display: grid; }
+.tile.sel { background: #dfe0ff; }
+.tile.wrong { animation: shake .35s; outline: 3px solid var(--bad); outline-offset: -3px; }
+.tile.fading img { opacity: 0; transform: scale(.6); }
+.tile.pop-in img { animation: popin .35s ease-out; }
+@keyframes popin { from { opacity: 0; transform: scale(.5); } to { opacity: 1; transform: scale(1); } }

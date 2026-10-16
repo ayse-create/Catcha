@@ -23,10 +23,7 @@ html, body { margin: 0; padding: 0; min-height: 100%; }
 body {
   font-family: var(--font);
   color: var(--ink);
-  background:
-    radial-gradient(circle at 20% 15%, rgba(255, 138, 76, .12), transparent 40%),
-    radial-gradient(circle at 85% 80%, rgba(91, 91, 214, .12), transparent 45%),
-    var(--bg);
+  background: #dbdbdb;
   background-attachment: fixed;
   -webkit-tap-highlight-color: transparent;
   line-height: 1.45;

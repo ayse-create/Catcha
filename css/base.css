@@ -51,7 +51,7 @@ img { max-width: 100%; }
   transition: transform .08s, box-shadow .08s, background .15s;
   touch-action: manipulation;
 }
-.btn:hover:not(:disabled) { background: #fff7ee; }
+.btn:hover:not(:disabled) { background: #dbdbdb; }
 .btn:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 0 0 var(--ink); }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
 .btn.primary { background: var(--primary); color: #fff; border-color: var(--primary-dark); box-shadow: 0 3px 0 var(--primary-dark); }

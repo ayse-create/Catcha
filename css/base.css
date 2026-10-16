@@ -1,8 +1,8 @@
 
 /* Temel: renkler, sıfırlama, düğmeler */
 :root {
-  --bg: #F3EEFF;
-  --bg2: #F3EEFF;
+  --bg: ##E5DDFB;
+  --bg2: #E5DDFB;
   --ink: #2b2d42;
   --muted: #6b6f85;
   --card: #ffffff;
